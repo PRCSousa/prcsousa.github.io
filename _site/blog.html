@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedro Rafael Castro Sousa</title>
+  <link rel="icon" href="/assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="layout-frame">
+    <aside class="sidebar">
+        <div class="avatar-wrapper">
+          <img src="/assets/images/1784916513044_jpg.png" alt="Pedro Sousa" class="avatar">
+        </div>
+        
+        <div class="contact-block">
+          <div class="contact-line">
+            <span class="contact-label">loc</span> Porto, Portugal
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">eml</span> <a href="mailto:pedrosousa084@hotmail.com">pedrosousa084@hotmail.com</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">git</span> <a href="https://github.com/PRCSousa" target="_blank" rel="noreferrer">PRCSousa ↗</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">pub</span> <a href="https://scholar.google.com/citations?user=t_PY9FUAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar ↗</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">lkd</span> <a href="https://www.linkedin.com/in/pedrosousa084/" target="_blank" rel="noreferrer">Pedro Sousa ↗</a>
+          </div>
+        </div>
+  
+        <!-- Status -->
+        <div class="sidebar-status-box">
+          <div class="status-row">
+            <span class="dot active"></span>
+            <span class="status-text">open to opportunities</span>
+          </div>
+          <a href="https://www.linkedin.com/in/pedrosousa084/" target="_blank" rel="noreferrer" class="connect-cta">Let's connect &rarr;</a>
+        </div>
+      </aside>
+    <main class="main-body">
+
+      <!-- Nav Bar -->
+      <nav class="nav-buttons">
+        <a href="/" class="nav-btn ">profile</a>
+        <a href="/blog.html" class="nav-btn active">blog</a>
+      </nav>
+
+      <!-- Page Content -->
+      <section class="section-block">
+  <span class="section-heading color-orange">latest posts</span>
+  
+  <div class="feed-list">
+    
+    
+      <!-- Post Loop -->
+      
+      <div class="entry-card">
+        <div class="card-main">
+          <div class="card-title-row">
+            <a href="/2026/08/22/opening.html" class="entry-title" style="text-decoration: none;">To write a blog you must first create the universe</a>
+          </div>
+          <div class="entry-subtitle">August 22, 2026</div>
+          
+          <p class="entry-desc">
+            Oh, I’ve been so eager to begin this. Finally, with my MSc wrapped up and out of the way, I found myself with actual free...
+          </p>
+          
+          <a href="/2026/08/22/opening.html" class="read-more-trigger" style="text-decoration: none; margin-top: 12px;">
+            <span class="read-more-label">read post</span>
+            <svg class="read-more-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform: rotate(-90deg);">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="card-meta">
+          <span class="meta-date">Aug 2026</span>
+          <div class="pill-group">
+            <!-- Automatically generate pills by adding tags: [rl, python] to the post front matter -->
+            
+            <span class="pill">personal</span>
+            
+            <span class="pill">jekyll</span>
+            
+            <span class="pill">markdown</span>
+            
+            <span class="pill">webdev</span>
+            
+          </div>
+        </div>
+      </div>
+      
+      
+    
+  </div>
+</section>
+      
+    </main>
+  </div>
+  
+  <script>
+    document.querySelectorAll('.read-more-trigger').forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        var card = trigger.closest('.entry-card');
+        var isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', String(!isExpanded));
+        card.classList.toggle('is-expanded', !isExpanded);
+        trigger.querySelector('.read-more-label').textContent = isExpanded ? 'read more' : 'show less';
+      });
+    });
+  </script>
+</body>
+</html>

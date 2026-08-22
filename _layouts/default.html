@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: "@PRCSousa" }}</title>
+  <link rel="icon" href="/assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="layout-frame">
+    <aside class="sidebar">
+        <div class="avatar-wrapper">
+          <img src="/assets/images/1784916513044_jpg.png" alt="Pedro Sousa" class="avatar">
+        </div>
+        
+        <div class="contact-block">
+          <div class="contact-line">
+            <span class="contact-label">loc</span> Porto, Portugal
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">eml</span> <a href="mailto:pedrosousa084@hotmail.com">pedrosousa084@hotmail.com</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">git</span> <a href="https://github.com/PRCSousa" target="_blank" rel="noreferrer">PRCSousa ↗</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">pub</span> <a href="https://scholar.google.com/citations?user=t_PY9FUAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar ↗</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">lkd</span> <a href="https://www.linkedin.com/in/pedrosousa084/" target="_blank" rel="noreferrer">Pedro Sousa ↗</a>
+          </div>
+        </div>
+  
+        <!-- Status -->
+        <div class="sidebar-status-box">
+          <div class="status-row">
+            <span class="dot active"></span>
+            <span class="status-text">open to opportunities</span>
+          </div>
+          <a href="https://www.linkedin.com/in/pedrosousa084/" target="_blank" rel="noreferrer" class="connect-cta">Let's connect &rarr;</a>
+        </div>
+      </aside>
+    <main class="main-body">
+
+      <!-- Nav Bar -->
+      <nav class="nav-buttons">
+        <a href="/" class="nav-btn {% if page.url == '/' %}active{% endif %}">profile</a>
+        <a href="/blog.html" class="nav-btn {% if page.url == '/blog.html' %}active{% endif %}">blog</a>
+      </nav>
+
+      <!-- Page Content -->
+      {{ content }}
+      
+    </main>
+  </div>
+  
+  <script>
+    document.querySelectorAll('.read-more-trigger').forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        var card = trigger.closest('.entry-card');
+        var isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', String(!isExpanded));
+        card.classList.toggle('is-expanded', !isExpanded);
+        trigger.querySelector('.read-more-label').textContent = isExpanded ? 'read more' : 'show less';
+      });
+    });
+  </script>
+</body>
+</html>
