@@ -6,3 +6,8 @@ kramdown:
   syntax_highlighter: rouge
 plugins:
   - jekyll-feed
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/

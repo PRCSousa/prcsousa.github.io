@@ -1,396 +1,146 @@
 ---
 layout: default
+title: Pedro Rafael Castro Sousa
 ---
 <style>
-    /* Adding this to the stylesheet and then referencing was not working, hardcoded it is. Change post markdown conversion here. */
-    .post-content p {
-      color: #aab7d1;
-      font-size: 0.9rem;
-      line-height: 1.8;
-      margin-bottom: 1.25rem;
-    }
+  /* Adding this to the stylesheet and then referencing was not working, hardcoded it is. Change post markdown conversion here. */
+  .post-content p { color: #aab7d1; font-size: 0.9rem; line-height: 1.8; margin-bottom: 1.25rem; }
+  .post-content h1, .header-section .handle { color: #fff; font-size: 1.2rem; border-left: 3px solid var(--accent-orange); padding-left: 0.5rem; margin-top: 2.5rem; margin-bottom: 0.75rem; font-weight: 500; letter-spacing: -0.5px; line-height: 1.3; }
+  .post-content h2 { color: #fff; font-size: 1.35rem; border-left: 2px solid var(--accent-blue); padding-left: 1rem; margin-left: 1rem; margin-top: 2rem; margin-bottom: 0.5rem; font-weight: 500; }
+  .post-content h3 { color: #fff; font-size: 1.1rem; border-left: 2px solid var(--accent-green); padding-left: 1rem; margin-left: 2rem; margin-top: 1.75rem; margin-bottom: 0.5rem; font-weight: 500; }
+  .post-content h4 { color: #fff; font-size: 1rem; border-left: 2px solid var(--accent-orange); padding-left: 1rem; margin-left: 3rem; margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: 500; }
+  .post-content h1 ~ p, .post-content h1 ~ ul, .post-content h1 ~ ol, .post-content h1 ~ blockquote, .post-content h1 ~ pre, .post-content h1 ~ table { margin-left: 0.5rem; }
+  .post-content h2 ~ p, .post-content h2 ~ ul, .post-content h2 ~ ol, .post-content h2 ~ blockquote, .post-content h2 ~ pre, .post-content h2 ~ table { margin-left: 1rem; }
+  .post-content h3 ~ p, .post-content h3 ~ ul, .post-content h3 ~ ol, .post-content h3 ~ blockquote, .post-content h3 ~ pre, .post-content h3 ~ table { margin-left: 2rem; }
+  .post-content h4 ~ p, .post-content h4 ~ ul, .post-content h4 ~ ol, .post-content h4 ~ blockquote, .post-content h4 ~ pre, .post-content h4 ~ table { margin-left: 3rem; }
+  .post-content del { color: var(--accent-red); }
+  .post-content code { background: var(--pill-bg); border: 1px solid var(--pill-border); padding: 0.1rem 0.4rem; border-radius: 3px; color: var(--accent-orange); font-family: "JetBrains Mono", monospace; font-size: 0.82rem; }
+  .post-content pre { background: #1e1e1e; border: 1px solid #333; border-left: 3px solid var(--accent-blue); padding: 1rem 1.25rem; margin: 1.5rem 0; overflow-x: auto; border-radius: 4px; }
+  .post-content pre code { background: none; border: none; color: #d4d4d4; padding: 0; font-size: 0.8rem; line-height: 1.7; font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace; }
   
-    .post-content h1,
-    .header-section .handle {
-      color: #fff;
-      font-size: 1.75rem;
-      border-left: 3px solid var(--accent-orange);
-      padding-left: 0.5rem;
-      margin-top: 2.5rem;
-      margin-bottom: 0.75rem;
-      font-weight: 500;
-      letter-spacing: -0.5px;
-      line-height: 1.3;
-    }
+  /* Rouge Syntax Highlighting */
+  .post-content .highlight { background: #1e1e1e; border-radius: 4px; margin: 1.5rem 0; }
+  .post-content .highlight pre { background: none; border: none; margin: 0; padding: 1rem 1.25rem; }
+  .post-content .highlight .c, .post-content .highlight .cm, .post-content .highlight .cp, .post-content .highlight .c1, .post-content .highlight .cs { color: #6a9955; font-style: italic; }
+  .post-content .highlight .k, .post-content .highlight .kc, .post-content .highlight .kd, .post-content .highlight .kn, .post-content .highlight .kp, .post-content .highlight .kr, .post-content .highlight .kt { color: #569cd6; }
+  .post-content .highlight .s, .post-content .highlight .sb, .post-content .highlight .sc, .post-content .highlight .sd, .post-content .highlight .s2, .post-content .highlight .se, .post-content .highlight .sh, .post-content .highlight .si, .post-content .highlight .sx, .post-content .highlight .sr, .post-content .highlight .s1, .post-content .highlight .ss { color: #ce9178; }
+  .post-content .highlight .m, .post-content .highlight .mb, .post-content .highlight .mf, .post-content .highlight .mh, .post-content .highlight .mi, .post-content .highlight .il, .post-content .highlight .mo { color: #b5cea8; }
+  .post-content .highlight .nf, .post-content .highlight .nd { color: #dcdcaa; }
+  .post-content .highlight .nc, .post-content .highlight .ni, .post-content .highlight .nb, .post-content .highlight .nn { color: #4ec9b0; }
+  .post-content .highlight .bp, .post-content .highlight .vc, .post-content .highlight .vg, .post-content .highlight .vi, .post-content .highlight .nv { color: #9cdcfe; }
+  .post-content .highlight .o, .post-content .highlight .p { color: #d4d4d4; }
+  .post-content .highlight .ow { color: #569cd6; }
+  .post-content .highlight .gd, .post-content .highlight .gr, .post-content .highlight .gt, .post-content .highlight .err { color: #f48771; }
+  .post-content .highlight .ge { color: #d4d4d4; font-style: italic; }
+  .post-content .highlight .gh, .post-content .highlight .go, .post-content .highlight .gp, .post-content .highlight .gu { color: #d4d4d4; }
+  .post-content .highlight .gi { color: #89d185; }
+  .post-content .highlight .gs { color: #d4d4d4; font-weight: bold; }
+  .post-content .highlight .err { background: #1e1e1e; }
   
-    .post-content h2 {
-      color: #fff;
-      font-size: 1.35rem;
-      border-left: 2px solid var(--accent-blue);
-      padding-left: 1rem;
-      margin-left: 1rem;
-      margin-top: 2rem;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
+  .post-content blockquote { background: var(--pill-bg); border-left: 3px solid var(--accent-green); padding: 0.5rem 1.25rem; margin: 1.5rem 0; border-radius: 4px; color: var(--text-muted); }
+  .post-content blockquote p:last-child { margin-bottom: 0; }
+  .post-content a { color: var(--accent-blue); border-bottom: 1px dashed var(--pill-border); text-decoration: none; transition: all 0.15s ease; }
+  .post-content a:hover { color: #fff; border-bottom-color: var(--accent-blue); }
+  .post-content ul, .post-content ol { color: var(--text-muted); padding-left: 1.75rem; margin: 1rem 0; line-height: 1.8; }
+  .post-content ul li, .post-content ol li { margin-bottom: 0.3rem; }
+  .post-content ul li::marker { color: var(--accent-blue); }
+  .post-content ol li::marker { color: var(--accent-orange); }
+  .post-content hr { border: none; border-top: 1px dashed var(--card-border); margin: 2.5rem 0; position: relative; }
+  .post-content img { max-width: 100%; border: 1px solid var(--card-border); border-radius: 4px; margin: 1.5rem 0; background: var(--pill-bg); padding: 0.3rem; }
+  .post-content strong { color: #fff; font-weight: 500; }
+  .post-content em { color: var(--accent-blue); font-style: italic; }
+  .post-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.82rem; }
+  .post-content table th { background: var(--pill-bg); color: #fff; text-align: left; padding: 0.5rem 1rem; border: 1px solid var(--pill-border); font-weight: 500; }
+  .post-content table td { padding: 0.5rem 1rem; border: 1px solid var(--pill-border); color: var(--text-muted); }
+  .post-content table tr:hover td { background: var(--pill-bg); }
   
-    .post-content h3 {
-      color: #fff;
-      font-size: 1.1rem;
-      border-left: 2px solid var(--accent-green);
-      padding-left: 1rem;
-      margin-left: 2rem;
-      margin-top: 1.75rem;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-  
-    .post-content h4 {
-      color: #fff;
-      font-size: 1rem;
-      border-left: 2px solid var(--accent-orange);
-      padding-left: 1rem;
-      margin-left: 3rem;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-  
-    /* Indentation for content following headers */
-    .post-content h1 ~ p,
-    .post-content h1 ~ ul,
-    .post-content h1 ~ ol,
-    .post-content h1 ~ blockquote,
-    .post-content h1 ~ pre,
-    .post-content h1 ~ table {
-      margin-left: 0.5rem;
-    }
-  
-    .post-content h2 ~ p,
-    .post-content h2 ~ ul,
-    .post-content h2 ~ ol,
-    .post-content h2 ~ blockquote,
-    .post-content h2 ~ pre,
-    .post-content h2 ~ table {
-      margin-left: 1rem;
-    }
-  
-    .post-content h3 ~ p,
-    .post-content h3 ~ ul,
-    .post-content h3 ~ ol,
-    .post-content h3 ~ blockquote,
-    .post-content h3 ~ pre,
-    .post-content h3 ~ table {
-      margin-left: 2rem;
-    }
-  
-    .post-content h4 ~ p,
-    .post-content h4 ~ ul,
-    .post-content h4 ~ ol,
-    .post-content h4 ~ blockquote,
-    .post-content h4 ~ pre,
-    .post-content h4 ~ table {
-      margin-left: 3rem;
-    }
-  
-    .post-content del {
-      color: var(--accent-red);
-    }
-  
-    .post-content code {
-      background: var(--pill-bg);
-      border: 1px solid var(--pill-border);
-      padding: 0.1rem 0.4rem;
-      border-radius: 3px;
-      color: var(--accent-orange);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.82rem;
-    }
-  
-    .post-content pre {
-      background: #1e1e1e;
-      border: 1px solid #333;
-      border-left: 3px solid var(--accent-blue);
-      padding: 1rem 1.25rem;
-      margin: 1.5rem 0;
-      overflow-x: auto;
-      border-radius: 4px;
-    }
-  
-    .post-content pre code {
-      background: none;
-      border: none;
-      color: #d4d4d4;
-      padding: 0;
-      font-size: 0.8rem;
-      line-height: 1.7;
-      font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
-    }
-  
-    /* Rouge Syntax Highlighting */
-    .post-content .highlight {
-      background: #1e1e1e;
-      border-radius: 4px;
-      margin: 1.5rem 0;
-    }
-  
-    .post-content .highlight pre {
-      background: none;
-      border: none;
-      margin: 0;
-      padding: 1rem 1.25rem;
-    }
-  
-    /* Tokens */
-    .post-content .highlight .c { color: #6a9955; font-style: italic; } /* Comment */
-    .post-content .highlight .cm { color: #6a9955; font-style: italic; } /* Comment.Multiline */
-    .post-content .highlight .cp { color: #6a9955; font-style: italic; } /* Comment.Preproc */
-    .post-content .highlight .c1 { color: #6a9955; font-style: italic; } /* Comment.Single */
-    .post-content .highlight .cs { color: #6a9955; font-style: italic; } /* Comment.Special */
-  
-    .post-content .highlight .k { color: #569cd6; } /* Keyword */
-    .post-content .highlight .kc { color: #569cd6; } /* Keyword.Constant */
-    .post-content .highlight .kd { color: #569cd6; } /* Keyword.Declaration */
-    .post-content .highlight .kn { color: #569cd6; } /* Keyword.Namespace */
-    .post-content .highlight .kp { color: #569cd6; } /* Keyword.Pseudo */
-    .post-content .highlight .kr { color: #569cd6; } /* Keyword.Reserved */
-    .post-content .highlight .kt { color: #569cd6; } /* Keyword.Type */
-  
-    .post-content .highlight .s { color: #ce9178; } /* String */
-    .post-content .highlight .sb { color: #ce9178; } /* String.Backtick */
-    .post-content .highlight .sc { color: #ce9178; } /* String.Char */
-    .post-content .highlight .sd { color: #ce9178; } /* String.Doc */
-    .post-content .highlight .s2 { color: #ce9178; } /* String.Double */
-    .post-content .highlight .se { color: #ce9178; } /* String.Escape */
-    .post-content .highlight .sh { color: #ce9178; } /* String.Heredoc */
-    .post-content .highlight .si { color: #ce9178; } /* String.Interpol */
-    .post-content .highlight .sx { color: #ce9178; } /* String.Other */
-    .post-content .highlight .sr { color: #ce9178; } /* String.Regex */
-    .post-content .highlight .s1 { color: #ce9178; } /* String.Single */
-    .post-content .highlight .ss { color: #ce9178; } /* String.Symbol */
-  
-    .post-content .highlight .m { color: #b5cea8; } /* Number */
-    .post-content .highlight .mb { color: #b5cea8; } /* Number.Bin */
-    .post-content .highlight .mf { color: #b5cea8; } /* Number.Float */
-    .post-content .highlight .mh { color: #b5cea8; } /* Number.Hex */
-    .post-content .highlight .mi { color: #b5cea8; } /* Number.Integer */
-    .post-content .highlight .il { color: #b5cea8; } /* Number.Integer.Long */
-    .post-content .highlight .mo { color: #b5cea8; } /* Number.Oct */
-  
-    .post-content .highlight .nf { color: #dcdcaa; } /* Name.Function */
-    .post-content .highlight .nc { color: #4ec9b0; } /* Name.Class */
-    .post-content .highlight .nd { color: #dcdcaa; } /* Name.Decorator */
-    .post-content .highlight .ni { color: #4ec9b0; } /* Name.Entity */
-    .post-content .highlight .nb { color: #4ec9b0; } /* Name.Builtin */
-    .post-content .highlight .bp { color: #9cdcfe; } /* Name.Builtin.Pseudo */
-    .post-content .highlight .vc { color: #9cdcfe; } /* Name.Variable.Class */
-    .post-content .highlight .vg { color: #9cdcfe; } /* Name.Variable.Global */
-    .post-content .highlight .vi { color: #9cdcfe; } /* Name.Variable.Instance */
-    .post-content .highlight .nv { color: #9cdcfe; } /* Name.Variable */
-    .post-content .highlight .nn { color: #4ec9b0; } /* Name.Namespace */
-  
-    .post-content .highlight .o { color: #d4d4d4; } /* Operator */
-    .post-content .highlight .ow { color: #569cd6; } /* Operator.Word */
-    .post-content .highlight .p { color: #d4d4d4; } /* Punctuation */
-  
-    .post-content .highlight .gd { color: #f48771; } /* Generic.Deleted */
-    .post-content .highlight .ge { color: #d4d4d4; font-style: italic; } /* Generic.Emph */
-    .post-content .highlight .gr { color: #f48771; } /* Generic.Error */
-    .post-content .highlight .gh { color: #d4d4d4; } /* Generic.Heading */
-    .post-content .highlight .gi { color: #89d185; } /* Generic.Inserted */
-    .post-content .highlight .go { color: #d4d4d4; } /* Generic.Output */
-    .post-content .highlight .gp { color: #d4d4d4; } /* Generic.Prompt */
-    .post-content .highlight .gs { color: #d4d4d4; font-weight: bold; } /* Generic.Strong */
-    .post-content .highlight .gu { color: #d4d4d4; } /* Generic.Subheading */
-    .post-content .highlight .gt { color: #f48771; } /* Generic.Traceback */
-  
-    .post-content .highlight .err { color: #f48771; background: #1e1e1e; } /* Error */
-  
-    .post-content blockquote {
-      background: var(--pill-bg);
-      border-left: 3px solid var(--accent-green);
-      padding: 0.5rem 1.25rem;
-      margin: 1.5rem 0;
-      border-radius: 4px;
-      color: var(--text-muted);
-    }
-  
-    .post-content blockquote p:last-child {
-      margin-bottom: 0;
-    }
-  
-    .post-content a {
-      color: var(--accent-blue);
-      border-bottom: 1px dashed var(--pill-border);
-      text-decoration: none;
-      transition: all 0.15s ease;
-    }
-  
-    .post-content a:hover {
-      color: #fff;
-      border-bottom-color: var(--accent-blue);
-    }
-  
-    .post-content ul,
-    .post-content ol {
-      color: var(--text-muted);
-      padding-left: 1.75rem;
-      margin: 1rem 0;
-      line-height: 1.8;
-    }
-  
-    .post-content ul li,
-    .post-content ol li {
-      margin-bottom: 0.3rem;
-    }
-  
-    .post-content ul li::marker {
-      color: var(--accent-blue);
-    }
-  
-    .post-content ol li::marker {
-      color: var(--accent-orange);
-    }
-  
-    .post-content hr {
-      border: none;
-      border-top: 1px dashed var(--card-border);
-      margin: 2.5rem 0;
-      position: relative;
-    }
-  
-    .post-content img {
-      max-width: 100%;
-      border: 1px solid var(--card-border);
-      border-radius: 4px;
-      margin: 1.5rem 0;
-      background: var(--pill-bg);
-      padding: 0.3rem;
-    }
-  
-    .post-content strong {
-      color: #fff;
-      font-weight: 500;
-    }
-  
-    .post-content em {
-      color: var(--accent-blue);
-      font-style: italic;
-    }
-  
-    .post-content table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-      font-size: 0.82rem;
-    }
-  
-    .post-content table th {
-      background: var(--pill-bg);
-      color: #fff;
-      text-align: left;
-      padding: 0.5rem 1rem;
-      border: 1px solid var(--pill-border);
-      font-weight: 500;
-    }
-  
-    .post-content table td {
-      padding: 0.5rem 1rem;
-      border: 1px solid var(--pill-border);
-      color: var(--text-muted);
-    }
-  
-    .post-content table tr:hover td {
-      background: var(--pill-bg);
-    }
-  
-    @media (max-width: 860px) {
-      .post-content h1,
-      .header-section .handle {
-        font-size: 1.5rem;
-        padding-left: 0.5rem;
-      }
-      
-      .post-content h2 {
-        font-size: 1.2rem;
-        padding-left: 0.75rem;
-        margin-left: 0.5rem;
-      }
-      
-      .post-content h3 {
-        font-size: 1rem;
-        padding-left: 0.75rem;
-        margin-left: 1rem;
-      }
-      
-      .post-content h4 {
-        font-size: 0.9rem;
-        padding-left: 0.65rem;
-        margin-left: 1.5rem;
-      }
-      
-      .post-content pre {
-        padding: 0.75rem 1rem;
-      }
-  
-      /* Responsive indentation */
-      .post-content h1 ~ p,
-      .post-content h1 ~ ul,
-      .post-content h1 ~ ol,
-      .post-content h1 ~ blockquote,
-      .post-content h1 ~ pre,
-      .post-content h1 ~ table {
-        margin-left: 0.5rem;
-      }
-  
-      .post-content h2 ~ p,
-      .post-content h2 ~ ul,
-      .post-content h2 ~ ol,
-      .post-content h2 ~ blockquote,
-      .post-content h2 ~ pre,
-      .post-content h2 ~ table {
-        margin-left: 0.5rem;
-      }
-  
-      .post-content h3 ~ p,
-      .post-content h3 ~ ul,
-      .post-content h3 ~ ol,
-      .post-content h3 ~ blockquote,
-      .post-content h3 ~ pre,
-      .post-content h3 ~ table {
-        margin-left: 1rem;
-      }
-  
-      .post-content h4 ~ p,
-      .post-content h4 ~ ul,
-      .post-content h4 ~ ol,
-      .post-content h4 ~ blockquote,
-      .post-content h4 ~ pre,
-      .post-content h4 ~ table {
-        margin-left: 1.5rem;
-      }
-    }
-  </style>
-<article class="section-block">
-  
-  <a href="/blog.html" class="read-more-trigger" style="margin-bottom: 2rem; text-decoration: none;">
-    <svg class="read-more-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform: rotate(90deg);">
-      <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <span class="read-more-label">back to posts</span>
-  </a>
+  @media (max-width: 860px) {
+    .post-content h1, .header-section .handle { font-size: 1.5rem; padding-left: 0.5rem; }
+    .post-content h2 { font-size: 1.2rem; padding-left: 0.75rem; margin-left: 0.5rem; }
+    .post-content h3 { font-size: 1rem; padding-left: 0.75rem; margin-left: 1rem; }
+    .post-content h4 { font-size: 0.9rem; padding-left: 0.65rem; margin-left: 1.5rem; }
+    .post-content pre { padding: 0.75rem 1rem; }
+    .post-content h1 ~ p, .post-content h1 ~ ul, .post-content h1 ~ ol, .post-content h1 ~ blockquote, .post-content h1 ~ pre, .post-content h1 ~ table, .post-content h2 ~ p, .post-content h2 ~ ul, .post-content h2 ~ ol, .post-content h2 ~ blockquote, .post-content h2 ~ pre, .post-content h2 ~ table { margin-left: 0.5rem; }
+    .post-content h3 ~ p, .post-content h3 ~ ul, .post-content h3 ~ ol, .post-content h3 ~ blockquote, .post-content h3 ~ pre, .post-content h3 ~ table { margin-left: 1rem; }
+    .post-content h4 ~ p, .post-content h4 ~ ul, .post-content h4 ~ ol, .post-content h4 ~ blockquote, .post-content h4 ~ pre, .post-content h4 ~ table { margin-left: 1.5rem; }
+  }
+</style>
 
-  <header class="header-section" style="border-bottom: 1px solid var(--card-border); padding-bottom: 1.5rem; margin-bottom: 1rem;">
-    <h1 class="handle">{{ page.title }}</h1>
-    <div class="role-title">{{ page.date | date: "%B %d, %Y" }}</div>
-    {% assign words = content | number_of_words %}
-    <div class="role-title" style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.3rem;">
-      ~ {{ words | divided_by: 200 | plus: 1 }} min read
-    </div>
-  </header>
+<section class="section-block">
+  <span class="section-heading color-orange">latest posts</span>
+  
+  <div class="feed-list">
+    {% if site.posts.size == 0 %}
+      <div class="entry-card">
+        <div class="card-main">
+          <span class="entry-title">No posts found yet.</span>
+          <p class="entry-desc">
+            Make sure your markdown files are inside the <code>_posts</code> folder and named correctly.
+          </p>
+        </div>
+      </div>
+    {% else %}
+    
+      <!-- Post Loop -->
+      {% for post in site.posts %}
+      
+      <article class="section-block" style="margin-bottom: 5rem;">
+        
+        <header class="header-section" style="border-bottom: 1px solid var(--card-border); padding-bottom: 1.5rem; margin-bottom: 1rem;">
+          <h1 class="handle">
+            <a style="color: inherit; text-decoration: none;">
+              {{ post.title }}
+            </a>
+          </h1>
+          
+          <div class="role-title">{{ post.date | date: "%B %d, %Y" }}</div>
+          
+          {% assign words = post.content | number_of_words %}
+          <div class="role-title" style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.3rem;">
+            ~ {{ words | divided_by: 200 | plus: 1 }} min read
+          </div>
+        </header>
 
-  <div class="post-content">
-    {{ content }}
+        <div class="post-content">
+          {{ post.content }}
+        </div>
+        
+        <div class="card-meta" style="margin-top: 1.5rem;">
+          <div class="pill-group">
+            {% for tag in post.tags %}
+            <span class="pill">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+      </article>
+      {% endfor %}
+      
+    {% endif %}
   </div>
+  <script>
+    function togglePost(clickedButton) {
 
-</article>
+      const article = clickedButton.closest('article');
+
+      const wrapper = article.querySelector('.post-body-wrapper');
+      const buttons = article.querySelectorAll('.collapse-btn .btn-text');
+      
+      const isCollapsed = wrapper.style.display === 'none';
+      
+      if (isCollapsed) {
+        // Expand it
+        wrapper.style.display = 'block';
+        buttons[0].innerText = 'Collapse';
+        buttons[1].innerText = 'Collapse ↑';
+      } else {
+        // Collapse it
+        wrapper.style.display = 'none';
+        buttons[0].innerText = 'Expand';
+        buttons[1].innerText = 'Expand ↓';
+        
+        article.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  </script>
+</section>

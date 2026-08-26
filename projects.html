@@ -1,0 +1,64 @@
+---
+layout: default
+title: Pedro Rafael Castro Sousa
+---
+
+<section class="section-block">
+  <span class="section-heading color-red">write-ups</span>
+  
+  <div class="feed-list">    
+    {% assign sorted_projects = site.projects | sort: 'start_date' | reverse %}
+    {% for project in sorted_projects %}
+      <div class="entry-card">
+  
+        <div class="card-main" style="width: 70%;">
+          <div class="card-title-row">
+            <a href="{{ project.url | relative_url }}" class="entry-title" style="text-decoration: none;">{{ project.title }}</a>
+          </div>
+          
+          <div class="entry-subtitle">
+            {% if project.start_date %}
+                <p class="project-dates {% if project.ongoing %}ongoing{% endif %}">
+                    {{ project.start_date | date: "%b %Y" }}
+                    
+                    {% if project.end_date %}
+                    - {{ project.end_date | date: "%b %Y" }}
+                    {% elsif project.ongoing %}
+                    - Present
+                    <span class="dot active" style="margin-bottom: 1px;"></span>
+                    {% endif %}
+                </p>
+            {% endif %}
+          </div>
+          
+          <p class="entry-desc">
+            {{ project.description }}
+          </p>
+        </div>
+
+        <div class="card-meta" style="width: 30%;">
+          <div class="pill-group">
+            {% for tag in project.tags %}
+            <span class="pill">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% if project.img_path %}
+        <a href="{{ project.url | relative_url }}">
+          <div class="card-image-wrapper" style="margin-bottom: 12px;">
+            <img src="{{ project.img_path | relative_url }}" alt="{{ project.title }} preview" style="max-width: 100%; border-radius: 8px; border: 5px solid var(--card-border); background: var(--pill-bg);" />
+          </div>
+        </a>
+        {% endif %}
+        <a href="{{ project.url | relative_url }}" class="read-more-trigger" style="text-decoration: none; margin-top: -25px; margin-bottom: 1rem;">
+          <span class="read-more-label">read more</span>
+          <svg class="read-more-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform: rotate(-90deg);">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+    {% endfor %}
+  </div>
+</section>

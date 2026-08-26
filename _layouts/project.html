@@ -1,32 +1,7 @@
 ---
 layout: default
-title: Pedro Rafael Castro Sousa
 ---
-
 <style>
-  .collapse-btn {
-    background: transparent;
-    border: 1px solid var(--pill-border);
-    color: var(--text-dim);
-    padding: 0.3rem 0.8rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.75rem;
-    font-family: inherit;
-    transition: all 0.15s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-  .collapse-btn:hover {
-    color: var(--accent-orange);
-    border-color: var(--accent-orange);
-  }
-  .header-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
   .post-content p { color: #aab7d1; font-size: 0.9rem; line-height: 1.8; margin-bottom: 1.25rem; }
   .post-content h1, .header-section .handle { color: #fff; font-size: 1.2rem; border-left: 3px solid var(--accent-orange); padding-left: 0.5rem; margin-top: 2.5rem; margin-bottom: 0.75rem; font-weight: 500; letter-spacing: -0.5px; line-height: 1.3; }
   .post-content h2 { color: #fff; font-size: 1.35rem; border-left: 2px solid var(--accent-blue); padding-left: 1rem; margin-left: 1rem; margin-top: 2rem; margin-bottom: 0.5rem; font-weight: 500; }
@@ -89,101 +64,26 @@ title: Pedro Rafael Castro Sousa
   }
 </style>
 
-<section class="section-block">
-  <span class="section-heading color-orange">latest posts</span>
+<article class="section-block">
   
-  <div class="feed-list">
-    {% if site.posts.size == 0 %}
-      <div class="entry-card">
-        <div class="card-main">
-          <span class="entry-title">No posts found yet.</span>
-        </div>
-      </div>
-    {% else %}
-    
-      {% for post in site.posts %}
-      
-      <article class="section-block" style="margin-bottom: 5rem;">
-        
-        <header class="header-section" style="border-bottom: 1px solid var(--card-border); padding-bottom: 1.5rem; margin-bottom: 1rem;">
-          
-          <div class="header-top-row">
-            <h1 class="handle" style="margin-top: 0; margin-bottom: 0.4rem;">
-              <a href="{{ post.url | relative_url }}" style="color: inherit; text-decoration: none;">
-                {{ post.title }}
-              </a>
-            </h1>
-            
-            <button type="button" class="collapse-btn" aria-expanded="true">
-              <span class="btn-text">Collapse</span>
-            </button>
-          </div>
-          
-          <div class="role-title">{{ post.date | date: "%B %d, %Y" }}</div>
-          
-          {% assign words = post.content | number_of_words %}
-          <div class="role-title" style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.3rem;">
-            ~ {{ words | divided_by: 200 | plus: 1 }} min read
-          </div>
-        </header>
+  <a href="/projects.html" class="read-more-trigger" style="margin-bottom: 2rem; text-decoration: none;">
+    <svg class="read-more-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform: rotate(90deg);">
+      <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="read-more-label">back to projects</span>
+  </a>
 
-        <div class="post-body-wrapper">
-          <div class="post-content">
-            {{ post.content }}
-          </div>
-          
-          <div class="card-meta" style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
-            <div class="pill-group">
-              {% for tag in post.tags %}
-              <span class="pill">{{ tag }}</span>
-              {% endfor %}
-            </div>
-            
-            <button type="button" class="collapse-btn">
-              <span class="btn-text">Collapse ↑</span>
-            </button>
-          </div>
-        </div>
+  <header class="header-section" style="border-bottom: 1px solid var(--card-border); padding-bottom: 1.5rem; margin-bottom: 1rem;">
+    <h1 class="handle">{{ page.title }}</h1>
+    <div class="role-title">{{ page.start_date | date: "%B %d, %Y" }} </div>
+    {% assign words = content | number_of_words %}
+    <div class="role-title" style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.3rem;">
+      ~ {{ words | divided_by: 200 | plus: 1 }} min read
+    </div>
+  </header>
 
-      </article>
-      {% endfor %}
-      
-    {% endif %}
+  <div class="post-content">
+    {{ content }}
   </div>
-</section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Get all collapse buttons on the page
-    const collapseButtons = document.querySelectorAll('.collapse-btn');
-
-    collapseButtons.forEach(function(button) {
-      button.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevents any default browser action
-        
-        // Find the parent article and the content wrapper
-        const article = this.closest('article');
-        if (!article) return;
-        
-        const wrapper = article.querySelector('.post-body-wrapper');
-        const buttonsTexts = article.querySelectorAll('.collapse-btn .btn-text');
-        
-        const isCollapsed = wrapper.style.display === 'none';
-        
-        if (isCollapsed) {
-          // Expand
-          wrapper.style.display = 'block';
-          buttonsTexts[0].innerText = 'Collapse';
-          if (buttonsTexts[1]) buttonsTexts[1].innerText = 'Collapse ↑';
-        } else {
-          // Collapse
-          wrapper.style.display = 'none';
-          buttonsTexts[0].innerText = 'Expand';
-          if (buttonsTexts[1]) buttonsTexts[1].innerText = 'Expand ↓';
-          
-          article.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  });
-</script>
+</article>

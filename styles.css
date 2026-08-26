@@ -228,7 +228,7 @@ body {
 
 .entry-card {
   border-top: 1px solid var(--card-border);
-  padding: 1.2rem 0;
+  padding: 1.2rem 0 0 0;
   display: flex;
   justify-content: space-between;
   gap: 1.5rem;
