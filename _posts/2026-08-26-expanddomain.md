@@ -4,7 +4,7 @@ title: "expanding my domain"
 tags: [python, machine learning, pytorch]
 ---
 
-As promised, this site now has its own dedicated **[projects](/projects.html)** section. I'll try to make it as interactive as possible by addimg not just what I did but *(if possible)* some interesting images to go along and make it more digestible. Right now we can click on each card to read more about the work.
+As promised, this site now has its own dedicated **[projects](/projects.html)** section. I'll try to make it as interactive as possible by adding not just what I did but *(if possible)* some interesting images to go along and make it more digestible. Right now we can click on each card to read more about the work.
 
 
 Also, I've begun the development of a new idea that came to my mind:
