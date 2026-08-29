@@ -109,13 +109,13 @@ title: Pedro Rafael Castro Sousa
           
           <div class="header-top-row">
             <h1 class="handle" style="margin-top: 0; margin-bottom: 0.4rem;">
-              <a href="{{ post.url | relative_url }}" style="color: inherit; text-decoration: none;">
+              <a style="color: inherit; text-decoration: none;">
                 {{ post.title }}
               </a>
             </h1>
             
-            <button type="button" class="collapse-btn" aria-expanded="true">
-              <span class="btn-text">Collapse</span>
+            <button type="button" class="collapse-btn" aria-expanded="false">
+              <span class="btn-text">Expand</span>
             </button>
           </div>
           
@@ -127,7 +127,7 @@ title: Pedro Rafael Castro Sousa
           </div>
         </header>
 
-        <div class="post-body-wrapper">
+        <div class="post-body-wrapper" style="display: none;">
           <div class="post-content">
             {{ post.content }}
           </div>
@@ -140,7 +140,7 @@ title: Pedro Rafael Castro Sousa
             </div>
             
             <button type="button" class="collapse-btn">
-              <span class="btn-text">Collapse ↑</span>
+              <span class="btn-text">Expand ↓</span>
             </button>
           </div>
         </div>
