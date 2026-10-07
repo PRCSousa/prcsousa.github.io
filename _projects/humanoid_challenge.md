@@ -41,7 +41,7 @@ Some instructions include:
 
 Observe some clapping:
 
-[Some clapping](/assets/project_images/humanoid_challenge/clapping_hands.gif)
+![Some clapping](/assets/project_images/humanoid_challenge/clapping_hands.gif)
 
 In total, I got approximately 10 videos for each instruction, to a total of 89 clips of 5-15 seconds.
 
@@ -55,11 +55,11 @@ As I though about the challenges behind embodied AI, I deliberatedly chose to no
 
 With these videos in hand (ha!), now I'd have to convert whatever my hand was doing into some useful data. After some research, [MediaPipe](https://developers.google.com/edge/mediapipe/solutions/vision/hand_landmarker), a library made specifically for image recognition, allowed us to collect positional information on 21 landmarks throughout our hand and wrist, as seen here:
 
-[hand_connections](/assets/project_images/humanoid_challenge/hand_connections.png)
+![hand_connections](/assets/project_images/humanoid_challenge/hand_connections.png)
 
 And after a bit of trial and error, I got this going:
 
-[tracked_clapping](/assets/project_images/humanoid_challenge/tracked_clapping.gif)
+![tracked_clapping](/assets/project_images/humanoid_challenge/tracked_clapping.gif)
 
 Fantastic. Note the line connecting the thumb and index, this will be the main way of indicating if I am gripping something or not, and here is where the biggest challenge began.
 
@@ -73,7 +73,7 @@ My first instinct was to use MediaPipe's provided depth estimation, and after tr
 
 By making some assumptions in my hand size, I could use the distance between landmarks as a method to estimate depth, if my hand gets smaller, the landmarks get closer, which means the hand is further away. It did indeed work, now movement was being considerably better in terms of distinguishing both axes, but still nowhere near optimal. The problem in this approach wasn't all that opaque either, as hand position and perspective plays a huge role in this kind of calculations:
 
-[perspective](/assets/project_images/humanoid_challenge/perspective.png)
+![perspective](/assets/project_images/humanoid_challenge/perspective.png)
 
 
 ## The stroke of genius
@@ -82,14 +82,14 @@ So I had to search for something a bit more intricate, and that's when I read ab
 
 Normally, PnP is used to estimate a camera's position using a set of known 3D points, and their corresponding 2D projections, and this is really how AprilTags work in the end, we know the physical size of the tag and where their corners sit, and we have their 2D video projections, so we can estimate the camera position.
 
-[PnP](/assets/project_images/humanoid_challenge/PnP.png)
+![PnP](/assets/project_images/humanoid_challenge/PnP.png)
 
 But, if we look at what we need to solve this problem, we actually (kinda) have everything we need to solve for it. Our hands, in terms of scale, do not really change all that much, and the palm specifically can't bend like our fingers, the palm is a rigid body, and we can estimate roughly their 3D positions (if we assume the palm landmarks are all coplanar to each other).
 
 So, instead of calculating the relative position of the camera to our palm, we instead calculate the relative position of the palm to our camera!
 
 
-[3dpalmplane](/assets/project_images/humanoid_challenge/3dpalmplane.gif)
+![3dpalmplane](/assets/project_images/humanoid_challenge/3dpalmplane.gif)
 
 This did work! And honestly in a much better way than I was expecting. As seen in the gif the axes are a bit crooked, in the end I assume the palm to be a plane, and this would be a limitation as any task requiring twisting my hand would throw this off, but for a hand serving as a proxy of a robotic arm, this will suffice.
 
@@ -106,7 +106,7 @@ In terms of the gripper, initially I looked rougly at what would be decent value
 
 Finally, now we just had to convert this data into LIBERO's convention, which was very straightforward and just required some scaling.
 
-[sim2real](/assets/project_images/humanoid_challenge/sim2real.gif)
+![sim2real](/assets/project_images/humanoid_challenge/sim2real.gif)
 
 With this, we have hand movement being decently translated into the simulation environment. Running this over my whole set of videos, and associating each one to their specific instruction, we end up with our dataset to train the VLA on.
 
@@ -128,17 +128,17 @@ There was supposed to be a table here, but alas I don't know why the interpreter
 
 Here we can visualize ```move left```:
 
-[move left](/assets/project_images/humanoid_challenge/move_left.gif)
+![move left](/assets/project_images/humanoid_challenge/move_left.gif)
 
 
 And ```move right```:
 
-[move right](/assets/project_images/humanoid_challenge/move_right.gif)
+![move right](/assets/project_images/humanoid_challenge/move_right.gif)
 
 
 And ```counterclockwise```:
 
-[clockwise](/assets/project_images/humanoid_challenge/clockwise.gif)
+![clockwise](/assets/project_images/humanoid_challenge/clockwise.gif)
 
 
 ## Discussion
